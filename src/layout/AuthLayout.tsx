@@ -1,7 +1,10 @@
 import { Box, Typography } from "@mui/material";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import LoginImage from "../assets/authImages/login_img.svg";
+import SignUpImage from '../assets/authImages/signup_img.svg';
 const AuthLayout = () => {
+    const location = useLocation();
+  const isLogin = location.pathname.includes("login");
   return (
 <Box
   sx={{
@@ -37,7 +40,7 @@ const AuthLayout = () => {
       </Typography>
     </Box>
 
-    <Box component="img" src={LoginImage} alt="illustration" sx={{ width: "100%", maxWidth: 400 }} />
+    <Box component="img" src={isLogin ? LoginImage : SignUpImage} alt="illustration" sx={{ width: "100%", maxWidth: 400 }} />
   </Box>
 
   {/* Right panel */}

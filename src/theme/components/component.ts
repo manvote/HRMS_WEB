@@ -1,9 +1,10 @@
 import type { Components } from '@mui/material/styles';
 import type { Theme } from '../types';
 import{MuiOutlinedInput} from './outlined-input';
-import{MuiTextField} from './text-field';
+import{MuiInputLabel} from './input-label';
 
 
 export const components = {
-MuiOutlinedInput
+MuiOutlinedInput,
+MuiInputLabel
 } satisfies Components<Theme>;

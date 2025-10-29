@@ -40,7 +40,7 @@ const SignupPage = () => {
         Sign up
       </Typography>
        <TextField  margin="normal" fullWidth label="Name"  />
-      <TextField  variant="outlined"  margin="normal" fullWidth label="Email id or Phone number"  />
+      <TextField sx={{borderColor:'black',borderWidth:'3px solid black'}} variant="outlined"  margin="normal" fullWidth label="Email id or Phone number"  />
       <TextField  margin="normal" fullWidth label="Password" type="password"  />
 
       <Button
