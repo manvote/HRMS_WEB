@@ -16,3 +16,11 @@ body,
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif !important;
 }
+/* Hide scrollbar for all elements */
+* {
+  scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}

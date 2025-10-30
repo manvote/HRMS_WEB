@@ -1,13 +1,12 @@
-
-
 import type { ColorSystemOptions } from '@mui/material/styles';
 import type { ColorScheme } from './types';
+
 declare module '@mui/material/styles' {
   interface PaletteColor {
-    extraLight?: string; // Add your custom property
+    extraLight?: string;
   }
   interface SimplePaletteColorOptions {
-    extraLight?: string; // Add your custom property
+    extraLight?: string;
   }
 }
 
@@ -15,173 +14,143 @@ export const colorSchemes = {
   dark: {
     palette: {
       primary: {
-        main: '#15b44aff',
-        light: '#800be0ff',
-        dark: '#1b9f6cff',
-        extraLight:'#eddff9'
-  
+        main: '#3B3F70',        // deep navy
+        light: '#4C518C',
+        dark: '#2B2E52',
+        extraLight: '#E4E6F3',
       },
       secondary: {
-        main: '#16cc68ff',
-        light: '#603588ff',
-        dark: '#6a18c4',
+        main: '#587DBD',        // blue button
+        light: '#7EA3E0',
+        dark: '#365C91',
       },
       success: {
-        main: '#0c9d61',
-        light: '#e5f5ec',
-        dark: '#047445',
-        contrastText: '#ffffff',
+        main: '#198754',
+        light: '#DFF5E1',
+        dark: '#146C43',
+        contrastText: '#fff',
       },
       info: {
-        main: '#df1010ff',
-        light: '#cfcdcd',
-        dark: '#393939',
-        contrastText: '#ffffff',
+        main: '#6C757D',
+        light: '#DEE2E6',
+        dark: '#343A40',
+        contrastText: '#fff',
       },
       error: {
-        main: '#ec2d30',
-        light: '#ffebee',
-        dark: '#ec2d30',
-        contrastText: '#ffffff',
+        main: '#DC3545',
+        light: '#F8D7DA',
+        dark: '#B02A37',
+        contrastText: '#fff',
       },
       warning: {
-        main: '#ffc821',
-        light: '#fff6da',
-        dark: '#f64c4c',
-        contrastText: '#ffffff',
+        main: '#FFC107',
+        light: '#FFF3CD',
+        dark: '#B38F00',
+        contrastText: '#000',
       },
-      // purple: {
-      //   A50: '#6610f2',
-      //   A100: '#9022FB',
-      //   A200: '#6915B4',
-      //   A250:'#3A006D',
-      //   A300:'#3A006D'
-      // },
       grey: {
-        100: '#F2F6FA',
-        200: '#EAEFF4',
-        300: '#DFE5EF',
-        400: '#7C8FAC',
-        500: '#5A6A85',
-        600: '#2A3547',
+        100: '#F8F9FA',
+        200: '#E9ECEF',
+        300: '#DEE2E6',
+        400: '#ADB5BD',
+        500: '#6C757D',
+        600: '#343A40',
       },
-      // blue:{
-      //     primary:'#693AED'
-      // },
       text: {
-        primary: '#18dd11ff',
-        secondary: '#6d6d6d',
-        disabled:'#6d6d6d',
+        primary: '#212529',
+        secondary: '#6C757D',
       },
-  
       action: {
-        disabledBackground: 'rgba(73,82,88,0.12)',
-        hoverOpacity: 0.02,
-        hover: '#101113ff',
+        hover: '#F0F0F5',
+        disabledBackground: '#E4E4E4',
       },
-      divider: '#e5eaef',
+      divider: '#E4E4E4',
       background: {
-        default: '#efeeff',
-
-        paper: '#ffffff',
-
+        default: '#F5F5F5',
+        paper: '#FFFFFF',
       },
       TableCell: {
-        border: '#ffffff',
+        border: '#E4E4E4',
       },
-      Alert:{
-        errorStandardBg: "#ffffff",
-        infoStandardBg: "#ffffff",
-        successStandardBg: "#ffffff",
-        warningStandardBg:"#ffffff",
+      Alert: {
+        errorStandardBg: '#FFFFFF',
+        infoStandardBg: '#FFFFFF',
+        successStandardBg: '#FFFFFF',
+        warningStandardBg: '#FFFFFF',
       },
       Avatar: {
         defaultBg: '#7C8FAC',
-      }
+      },
     },
   },
+
   light: {
     palette: {
       primary: {
-        main: '#21264E',
-        light: '#720dc4ff',
-        dark: '#601b9f',
-        extraLight:'#eddff9'
-  
+        main: '#3B3F70',
+        light: '#4C518C',
+        dark: '#2B2E52',
+        extraLight: '#E4E6F3',
       },
       secondary: {
-        main: '#21264E',
-        light: '#f1e2ff',
-        dark: '#6a18c4',
+        main: '#587DBD',
+        light: '#7EA3E0',
+        dark: '#365C91',
       },
       success: {
-        main: '#0c9d61',
-        light: '#e5f5ec',
-        dark: '#047445',
-        contrastText: '#ffffff',
+        main: '#198754',
+        light: '#DFF5E1',
+        dark: '#146C43',
+        contrastText: '#fff',
       },
       info: {
-        main: '#6d6d6d',
-        light: '#cfcdcd',
-        dark: '#393939',
-        contrastText: '#ffffff',
+        main: '#6C757D',
+        light: '#E9ECEF',
+        dark: '#343A40',
+        contrastText: '#fff',
       },
       error: {
-        main: '#ec2d30',
-        light: '#ffebee',
-        dark: '#ec2d30',
-        contrastText: '#ffffff',
+        main: '#DC3545',
+        light: '#F8D7DA',
+        dark: '#B02A37',
+        contrastText: '#fff',
       },
       warning: {
-        main: '#ffc821',
-        light: '#fff6da',
-        dark: '#f64c4c',
-        contrastText: '#ffffff',
+        main: '#FFC107',
+        light: '#FFF3CD',
+        dark: '#B38F00',
+        contrastText: '#000',
       },
-      // purple: {
-      //   A50: '#6610f2',
-      //   A100: '#9022FB',
-      //   A200: '#6915B4',
-      //   A250:'#3A006D',
-      //   A300:'#3A006D'
-      // },
       grey: {
-        100: '#F2F6FA',
-        200: '#EAEFF4',
-        300: '#DFE5EF',
-        400: '#7C8FAC',
-        500: '#5A6A85',
-        600: '#2A3547',
+        100: '#F8F9FA',
+        200: '#E9ECEF',
+        300: '#DEE2E6',
+        400: '#ADB5BD',
+        500: '#6C757D',
+        600: '#343A40',
       },
-      // blue:{
-      //     primary:'#693AED'
-      // },
       text: {
-        primary: '#ffffffff',
-        secondary: '#0000007a',
+        primary: '#212529',
+        secondary: '#6C757D',
       },
-  
       action: {
-        disabledBackground: 'rgba(73,82,88,0.12)',
-        hoverOpacity: 0.02,
-        hover: '#110c0cff',
+        hover: '#F0F0F5',
+        disabledBackground: '#E4E4E4',
       },
-      divider: '#e5eaef',
+      divider: '#E4E4E4',
       background: {
-        default: '#efeeff',
-        paper: '#ffffff',
-
+        default: '#F5F5F5',
+        paper: '#FFFFFF',
       },
       TableCell: {
-        border: '#ffffff', // Matches the divider color for consistency
+        border: '#E4E4E4',
       },
-      Alert:{
-        errorStandardBg: "#ffffff",
-        infoStandardBg: "#ffffff",
-        successStandardBg: "#ffffff",
-        warningStandardBg:"#ffffff",
-      }
+      Alert: {
+        errorStandardBg: '#FFFFFF',
+        infoStandardBg: '#FFFFFF',
+        successStandardBg: '#FFFFFF',
+        warningStandardBg: '#FFFFFF',
+      },
     },
   },
 } satisfies Partial<Record<ColorScheme, ColorSystemOptions>>;
-

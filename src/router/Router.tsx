@@ -5,6 +5,7 @@ import SignupPage from "../pages/authPages/SigninPage";
 import PrivateRouter from "./PrivateRouter";
 import AdminDashboard from "../pages/adminPages/AdminDashboardPage";
 import EmployeeDashboard from "../pages/employeePages/EmpDashboardPage";
+import AdminLayout from "../layout/AdminLayout";
 
 export const AppRouter = () => {
   const router = createBrowserRouter([
@@ -19,8 +20,23 @@ export const AppRouter = () => {
       path: "/",
       element: <PrivateRouter />,
       children: [
-        { path: "admin", element: <AdminDashboard /> },
-        { path: "employee", element: <EmployeeDashboard /> },
+   
+        {
+          path: "employee",
+          element: <AdminLayout/>,
+          children: [
+            { index: true, element: <EmployeeDashboard /> },
+           
+          ],
+        },
+           {
+          path: "admin",
+          element: <AdminLayout/>,
+          children: [
+            { index: true,  element: <AdminDashboard /> },
+           
+          ],
+        },
       ],
     },
   ]);

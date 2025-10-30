@@ -16,10 +16,13 @@ export const typography: NonNullable<ThemeOptions['typography']> = {
   h2: {fontWeight: 600, fontSize: "41px",color: '#ffffff' },
   h3: {fontWeight: 600, fontSize: "24px",color: '#21264EA3' },
   h4: {fontWeight: 600, fontSize: "27px",color: '#21264EA3' },
+  h5: { fontSize: '13px', fontWeight: 600,color: '#ffffffff' },
+    h6: { fontSize: '24px', fontWeight: 600,color: '#ffffffff' },
 
   button: { textTransform: 'capitalize', fontWeight: 400 },
-  body1: { fontSize: '0.875rem', fontWeight: 400, lineHeight: '100%'},
-  body2: { fontSize: '0.75rem', fontWeight: 600, lineHeight: '1rem' },
+  body1: { fontSize: '13px', fontWeight: 600,color: '#f3f4f7ff' },
+  body2: { fontSize: '0.75rem', fontWeight: 600, lineHeight: '1rem',color: '#21264EA3' },
+
   subtitle1: { fontSize: '0.875rem', fontWeight: 700, color: '#da2727ff' },
   subtitle2: { fontSize: '0.875rem', fontWeight: 400 },
 };

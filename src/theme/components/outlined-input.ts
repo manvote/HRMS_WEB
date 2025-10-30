@@ -7,6 +7,9 @@ export const MuiOutlinedInput: Components<Theme>["MuiOutlinedInput"] = {
       "& .MuiOutlinedInput-notchedOutline": {
         border: "2px solid #21264E",
       },
+            "&:hover .MuiOutlinedInput-notchedOutline": {
+        borderColor: "#21264E",
+      },
 
     },
     input: {

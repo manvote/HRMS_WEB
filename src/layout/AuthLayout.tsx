@@ -1,9 +1,27 @@
 import { Box, Typography } from "@mui/material";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet,  } from "react-router-dom";
 import LoginImage from "../assets/authImages/login_img.svg";
 import SignUpImage from '../assets/authImages/signup_img.svg';
+import { useEffect, useRef, useState } from "react";
 const AuthLayout = () => {
-    const location = useLocation();
+  
+ const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState<number | "auto">("auto");
+
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+
+    const resizeObserver = new ResizeObserver(() => {
+      setHeight(el.scrollHeight);
+    });
+
+    resizeObserver.observe(el);
+    setHeight(el.scrollHeight);
+
+    return () => resizeObserver.disconnect();
+  }, []);
+    // const location = useLocation();
   const isLogin = location.pathname.includes("login");
   return (
 <Box
@@ -54,9 +72,7 @@ const AuthLayout = () => {
   >
     <Box
       sx={{
-        width: '50%',
-        height: "70%",
-        p:5, 
+        width: "45%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -64,9 +80,14 @@ const AuthLayout = () => {
         boxShadow: "0px 4px 10px rgba(0,0,0,0.1)",
         background: "#F5F5F5",
         backdropFilter: "blur(10px)",
+        overflow: "hidden",
+        transition: "height 0.6s ease",
+        height: typeof height === "number" ? `${height}px` : "auto",
       }}
     >
-      <Outlet />
+      <Box ref={contentRef} sx={{ width: "100%",  p: 5, }}>
+        <Outlet />
+      </Box>
     </Box>
   </Box>
 </Box>

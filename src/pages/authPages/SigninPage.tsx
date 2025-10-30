@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   Box,
   Button,
@@ -6,8 +6,12 @@ import {
   Typography,
   Divider,
   IconButton,
+  InputAdornment,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Visibility,
+ VisibilityOff, } from "@mui/icons-material";
 
 // import your icons
 import GoogleIcon from "../../assets/authImages/google_img.svg";
@@ -17,6 +21,9 @@ import AppleIcon from "../../assets/authImages/apple_img.svg";
 
 const SignupPage = () => {
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => setShowPassword((prev) => !prev);
 
   const socialIcons = [
     { src: GoogleIcon, alt: "Google",},
@@ -26,7 +33,8 @@ const SignupPage = () => {
   ];
 
   return (
-    <Box sx={{width:'380px'}} >
+     <Box sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+      <Box>
       <Typography
         variant="h4"
         sx={{ fontSize: "17px", mb: 1 }}
@@ -39,9 +47,26 @@ const SignupPage = () => {
       >
         Sign up
       </Typography>
+      </Box>
+      <Box sx={{ width:'75%'}}>
        <TextField  margin="normal" fullWidth label="Name"  />
-      <TextField sx={{borderColor:'black',borderWidth:'3px solid black'}} variant="outlined"  margin="normal" fullWidth label="Email id or Phone number"  />
-      <TextField  margin="normal" fullWidth label="Password" type="password"  />
+      <TextField   margin="normal" fullWidth label="Email id or Phone number"  />
+     <TextField
+      margin="normal"
+      fullWidth
+      label="Password"
+      type={showPassword ? "text" : "password"}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton onClick={handleTogglePassword} edge="end">
+              {showPassword ? <VisibilityOff /> : <Visibility />}
+            </IconButton>
+          </InputAdornment>
+        ),
+      }}
+    />
+      <Typography variant="body2" sx={{ textAlign: "center", mt: 2 }}>I agree to the Tearm of Service and Privacy Policy.</Typography>
 
       <Button
         fullWidth
@@ -78,7 +103,7 @@ const SignupPage = () => {
               component="img"
               src={icon.src}
               alt={icon.alt}
-              sx={{width: "21px", height: "22px"}}
+              sx={{width: "21px", height: "22px",":hover": { transform: "scale(1.1)" },}}
             />
           </IconButton>
         ))}
@@ -107,6 +132,7 @@ const SignupPage = () => {
           Log in
         </Typography>
       </Typography>
+      </Box>
     </Box>
   );
 };

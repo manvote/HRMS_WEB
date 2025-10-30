@@ -1,9 +1,10 @@
 import { Box, Typography } from '@mui/material'
 
+
 const EmpDashboardPage = () => {
-    return (
+  return (
 <Box>
-    <Typography >SigninPage</Typography>
+    <Typography >Signin</Typography>
 </Box>
   )
 }

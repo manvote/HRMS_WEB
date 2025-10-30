@@ -1,30 +1,32 @@
+// src/routes/PrivateRouter.tsx
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 const PrivateRouter = () => {
   const location = useLocation();
-
   const raw = localStorage.getItem("user");
-  let user = null;
+  const user = raw ? JSON.parse(raw) : null;
 
-  try {
-    user = raw ? JSON.parse(raw) : null;
+  // Not logged in → send to login
+  if (!user?.token) return <Navigate to="/login" replace />;
 
-    const validRoles = ["admin", "employee", "manager"];
-    if (!user?.role || !validRoles.includes(user.role)) {
-      throw new Error("invalid role");
-    }
-  } catch (err) {
-    alert("Invalid role. Please log in again.");
+  // Allowed roles
+  const validRoles = ["admin", "employee", "manager"];
+  if (!validRoles.includes(user.role)) {
     localStorage.removeItem("user");
     return <Navigate to="/login" replace />;
   }
 
-  if (!user) return <Navigate to="/login" replace />;
-
+  // Redirect from root `/` based on role
   if (location.pathname === "/") {
-    if (user.role === "admin") return <Navigate to="/admin" replace />;
-    if (user.role === "employee") return <Navigate to="/employee" replace />;
+    return <Navigate to={`/${user.role}`} replace />;
+  }
 
+  // Role-based protection
+  if (location.pathname.startsWith("/admin") && user.role !== "admin") {
+    return <Navigate to="/employee" replace />;
+  }
+  if (location.pathname.startsWith("/employee") && user.role !== "employee") {
+    return <Navigate to="/admin" replace />;
   }
 
   return <Outlet />;

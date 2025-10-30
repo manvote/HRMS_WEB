@@ -6,11 +6,13 @@ import {
   Typography,
   Divider,
   IconButton,
+    InputAdornment,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Visibility,
+ VisibilityOff, } from "@mui/icons-material";
 
-
-// import your icons
 import GoogleIcon from "../../assets/authImages/google_img.svg";
 import FacebookIcon from "../../assets/authImages/facebook_img.svg";
 import TwitterIcon from "../../assets/authImages/twitter_img.svg";
@@ -20,6 +22,16 @@ import AppleIcon from "../../assets/authImages/apple_img.svg";
 const LoginPage = () => {
 
     const navigate = useNavigate();
+    
+      const [showPassword, setShowPassword] = useState(false);
+    
+      const handleTogglePassword = () => setShowPassword((prev) => !prev);
+  const handleClick = () => {
+    const user = { token: "fakeToken123", role: "admin" };
+    localStorage.setItem("user", JSON.stringify(user));
+    navigate("/admin");
+  };
+
 
   const socialIcons = [
     { src: GoogleIcon, alt: "Google",},
@@ -29,7 +41,8 @@ const LoginPage = () => {
   ];
 
   return (
- <Box sx={{width:'380px'}}>
+ <Box sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+ <Box  sx={{width:'75%'}}>
       <Typography
         variant="h3"
       >
@@ -40,13 +53,29 @@ const LoginPage = () => {
       >
         Login to continue
       </Typography>
-
+      </Box>
+     <Box  sx={{width:'75%'}}>
       <TextField  margin="normal" fullWidth label="Email id or Phone number"  />
-      <TextField  margin="normal" fullWidth label="Password" type="password"  />
+          <TextField
+      margin="normal"
+      fullWidth
+      label="Password"
+      type={showPassword ? "text" : "password"}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton onClick={handleTogglePassword} edge="end">
+              {showPassword ? <VisibilityOff /> : <Visibility />}
+            </IconButton>
+          </InputAdornment>
+        ),
+      }}
+    />
 
       <Button
         fullWidth
         variant="contained"
+         onClick={handleClick}  
         sx={{
           mt: 2,
           bgcolor: "#1a214f",
@@ -55,6 +84,7 @@ const LoginPage = () => {
       >
         Log in
       </Button>
+  
             <Box
         sx={{
           display: "flex",
@@ -76,7 +106,7 @@ const LoginPage = () => {
               component="img"
               src={icon.src}
               alt={icon.alt}
-              sx={{width: "21px", height: "22px"}}
+              sx={{width: "21px", height: "22px",":hover": { transform: "scale(1.1)" },}}
             />
           </IconButton>
         ))}
@@ -105,6 +135,7 @@ const LoginPage = () => {
           Sign up
         </Typography>
       </Typography>
+          </Box>
       </Box>
 
   );
