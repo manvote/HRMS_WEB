@@ -23,7 +23,7 @@ const AdminDashboardPage = () => {
     setStatus(event.target.value);
   console.log(searchValue)
 
-  const employees = Array.from({ length: 20 }, (_, i) => ({
+  const employees = Array.from({ length: 120 }, (_, i) => ({
     name: "BV Kumar",
     id: 183646 + i,
     email: "abe@gmail.com",
@@ -82,7 +82,7 @@ const AdminDashboardPage = () => {
           bgcolor: "#F7F7F8",
           p: 2,
           gap: 2,
-          mt: 3,
+          mt: 2,
         }}
       >
         <Box sx={{ width: "50%" }}>
@@ -102,13 +102,15 @@ const AdminDashboardPage = () => {
               bgcolor: "#D9D9D95C",
               px: "1rem !important",
               py: ".75rem !important",
-              color: "#00000052",
-              fontWeight: 500,
-              fontSize: "18px",
+
+
               display: "flex",
               alignItems: "center",
               height: "100%",
               lineHeight: 1.5,
+                    fontSize: '18px',
+          fontWeight: 600,
+          color: "#89898a",
             },
           }}
         >

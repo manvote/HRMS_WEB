@@ -2,17 +2,18 @@
 import { Box, Typography, } from "@mui/material";
 import LogoutImg from "../assets/navbarImages/logout_img.svg";
 import SettingImg from "../assets/navbarImages/settings_img.svg";
+import { useNavigate } from "react-router-dom";
 
 const menuItems = [
-  { text: "Attendance" },
-  { text: "Employee Management" },
-  { text: "Payroll" },
-  { text: "Performance" },
-  { text: "Onboarding Management" },
-  { text: "Recruitment/Hiring" },
-  { text: "Analytics" },
-  { text: "Training/Management" },
-  { text: "Notification" },
+  { text: "Attendance",path:"/Attendance" },
+  { text: "Employee Management",path:"/EmployeeManagement"  },
+  { text: "Payroll", path:"/Payroll" },
+  { text: "Performance",path:"/Performance"  },
+  { text: "Onboarding Management",path:"/Onboarding"  },
+  { text: "Recruitment/Hiring" ,path:"/Recruitment"},
+  { text: "Analytics" ,path:"/Analytics"},
+  { text: "Training/Management",path:"/Training" },
+  { text: "Notification",path:"/Notifications" },
 ];
 
 const styles = {
@@ -65,12 +66,14 @@ const styles = {
 
 
 const LeftSideNavbar = () => {
+  const navigate = useNavigate();
   const handleClick = (text: string) => {
-    console.log(`${text} clicked`);
+
     if (text === "Logout") {
       localStorage.removeItem("user");
       window.location.href = "/login";
     }
+    navigate(`/admin${text}`);
   };
 
   return (
@@ -87,7 +90,7 @@ const LeftSideNavbar = () => {
     {menuItems.map((item) => (
       <Box
         key={item.text}
-        onClick={() => handleClick(item.text)}
+        onClick={() => handleClick(item.path)}
         sx={styles.menuItem}
       >
         <Typography variant="body1" sx={styles.menuText}>
@@ -99,7 +102,7 @@ const LeftSideNavbar = () => {
 
   {/* Bottom section */}
   <Box sx={styles.bottomSection}>
-    <Box sx={styles.bottomItem} onClick={() => handleClick("Settings")}>
+    <Box sx={styles.bottomItem} onClick={() => handleClick("/Settings")}>
       <Box component="img" src={SettingImg} sx={styles.icon} />
       <Typography sx={{ fontSize: "18px", fontWeight: 400 }}>Setting</Typography>
     </Box>
